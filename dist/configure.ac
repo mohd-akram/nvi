@@ -807,7 +807,10 @@ dnl using the system library, because it may be part of the underlying
 dnl termcap/termlib support, and we want to use the local one.
 AC_MSG_CHECKING(for setupterm)
 AC_CACHE_VAL(vi_cv_have_curses_setupterm, [dnl
-AC_TRY_LINK([#include <$CURSHEADER>], [setupterm(0, 0, 0);],
+AC_TRY_LINK([#include <$CURSHEADER>
+#ifdef HAVE_TERM_H
+#include <term.h>
+#endif], [setupterm(0, 0, 0);],
 	[vi_cv_have_curses_setupterm=yes],
 	[vi_cv_have_curses_setupterm=no])])
 if test "$vi_cv_have_curses_setupterm" = yes; then
