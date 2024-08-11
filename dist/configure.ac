@@ -599,6 +599,13 @@ if test "$vi_cv_include_sys_select" = yes; then
 fi
 AC_MSG_RESULT($vi_cv_include_sys_select)
 
+AC_CACHE_VAL(vi_cv_include_term, [dnl
+AC_CHECK_HEADER([term.h],
+	[vi_cv_include_term=yes], [vi_cv_include_term=no])])
+if test "$vi_cv_include_term" = yes; then
+	AC_DEFINE(HAVE_TERM_H, 1, [Define if you have <term.h])
+fi
+
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_CHECK_TYPE(ssize_t, int)
 AC_C_BIGENDIAN
