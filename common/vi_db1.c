@@ -709,6 +709,9 @@ db_init(SCR *sp, EXF *ep, char *rcv_name, char *oname, size_t psize, int *open_e
 	return 0;
 }
 
+/*
+ * PUBLIC: char *db_strerror __P((int error));
+ */
 char *
 db_strerror(int error)
 {
