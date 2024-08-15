@@ -162,8 +162,12 @@ v_wstrdup(SCR *sp, const CHAR_T *str, size_t len)
 enum nresult
 nget_uslong(SCR *sp, u_long *valp, const CHAR_T *p, CHAR_T **endp, int base)
 {
+	RCHAR_T *end;
+
 	errno = 0;
-	*valp = STRTOUL(p, endp, base);
+	*valp = STRTOUL(p, &end, base);
+	if (endp)
+		*endp = end;
 	if (errno == 0)
 		return (NUM_OK);
 	if (errno == ERANGE && *valp == ULONG_MAX)
@@ -180,8 +184,12 @@ nget_uslong(SCR *sp, u_long *valp, const CHAR_T *p, CHAR_T **endp, int base)
 enum nresult
 nget_slong(SCR *sp, long int *valp, const CHAR_T *p, CHAR_T **endp, int base)
 {
+	RCHAR_T *end;
+
 	errno = 0;
-	*valp = STRTOL(p, endp, base);
+	*valp = STRTOL(p, &end, base);
+	if (endp)
+		*endp = end;
 	if (errno == 0)
 		return (NUM_OK);
 	if (errno == ERANGE) {
