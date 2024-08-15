@@ -84,7 +84,7 @@ subagain:	return (ex_subagain(sp, cmdp));
 	/*
 	 * !!!
 	 * The full-blown substitute command reset the remembered
-	 * state of the 'c' and 'g' suffices.
+	 * state of the 'c' and 'g' suffixes.
 	 */
 	sp->c_suffix = sp->g_suffix = 0;
 
@@ -363,7 +363,7 @@ s(SCR *sp, EXCMD *cmdp, CHAR_T *s, regex_t *re, u_int flags)
 
 	/*
 	 * !!!
-	 * Historically, the 'g' and 'c' suffices were always toggled as flags,
+	 * Historically, the 'g' and 'c' suffixes were always toggled as flags,
 	 * so ":s/A/B/" was the same as ":s/A/B/ccgg".  If O_EDCOMPATIBLE was
 	 * not set, they were initialized to 0 for all substitute commands.  If
 	 * O_EDCOMPATIBLE was set, they were initialized to 0 only if the user

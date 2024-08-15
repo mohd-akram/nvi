@@ -1857,7 +1857,7 @@ Causes the presence of absence of
 and
 .B c
 suffixes on substitute commands to be remembered, and to be toggled
-by repeating the suffices.  The suffix
+by repeating the suffixes.  The suffix
 .B r
 makes the substitution be as in the
 .I ~
