@@ -497,7 +497,8 @@ cscope_find(SCR *sp, EXCMD *cmdp, CHAR_T *pattern)
 		 * search cscope command character and a leading space
 		 * there.)
 		 */
-		(void)fprintf(csc->to_fp, "%d%s\n", search, tqp->tag + 2);
+		(void)fprintf(csc->to_fp, "%" PRI_SIZE_T_MODIFIER "d%s\n",
+			search, tqp->tag + 2);
 		(void)fflush(csc->to_fp);
 
 		/* Read the output. */

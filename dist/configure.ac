@@ -995,6 +995,8 @@ if test "$vi_cv_proto_fprintf" = yes; then
 		[Define when fprintf prototype not in an obvious place.])
 fi
 
+AX_PRINTF_SIZE_T
+
 AC_ARG_WITH(db_type,
 	[  --with-db=bundled|system Which db to use. ])
 
