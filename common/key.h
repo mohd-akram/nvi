@@ -102,8 +102,15 @@ typedef	u_int		ARG_CHAR_T;
 #define MEMMOVEW(to, from, n) \
     memmove(to, from, (n) * sizeof(CHAR_T))
 
-/* The maximum number of columns any character can take up on a screen. */
-#define	MAX_CHARACTER_COLUMNS	4
+/* The maximum number of columns any character can take up on a screen.
+ * In v_key_name, a character can take
+ *	(1 + (sizeof(CHAR_T) * 8 + 2) / 3)
+ * columns if O_OCTAL is set and
+ *	(1 + (sizeof(CHAR_T) * 8 + 3) / 4)
+ * otherwise.
+ * Since sizeof(CHAR_T) is at least one, the first is always larger (or equal).
+ */
+#define	MAX_CHARACTER_COLUMNS	(1 + (sizeof(CHAR_T) * 8 + 2) / 3)
 
 /*
  * Event types.

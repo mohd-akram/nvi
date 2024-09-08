@@ -300,11 +300,7 @@ nopr:	if (ISCNTRL(ch) && (ch < 0x20 || ch == 0x7f)) {
 		sp->cname[0] = '\\';
 		sp->cname[1] = 'x';
 		for (len = 2, chp = (u_int8_t *)&ch,
-		    /* sizeof(CHAR_T) conflict with MAX_CHARACTER_COLUMNS
-		     * and code depends on big endian
-		     * and might not be needed in the long run
-		     */
-		    cnt = /*sizeof(CHAR_T)*/1; cnt-- > 0; ++chp) {
+		    cnt = sizeof(CHAR_T); cnt-- > 0; ++chp) {
 			sp->cname[len++] = hexdigit[(*chp & 0xf0) >> 4];
 			sp->cname[len++] = hexdigit[*chp & 0x0f];
 		}
