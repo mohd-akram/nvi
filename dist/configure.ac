@@ -983,17 +983,7 @@ AC_CACHE_CHECK([return type of fprintf], vi_cv_type_fprintf,
 int fprintf ();
 ],[int i;], vi_cv_type_fprintf=int, vi_cv_type_fprintf=void)])
 
-AC_SUBST(NEED_FPRINTF_PROTO)
-AC_CACHE_CHECK([whether fprintf prototype needed], vi_cv_proto_fprintf,
-[AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdio.h>
-typedef int     (*funcPtr)();
-]], [[funcPtr ptr = (funcPtr) fprintf;]])],
-[vi_cv_proto_fprintf=no],
-[vi_cv_proto_fprintf=yes])])
-if test "$vi_cv_proto_fprintf" = yes; then
-	AC_DEFINE(NEED_FPRINTF_PROTO, 1,
-		[Define when fprintf prototype not in an obvious place.])
-fi
+VI_PROTOTYPE([fprintf], [[#include <stdio.h>]])
 
 AX_PRINTF_SIZE_T
 
