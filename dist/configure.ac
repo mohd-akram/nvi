@@ -851,7 +851,9 @@ AC_MSG_RESULT($vi_cv_sys5_pty)
 dnl Check for the revoke system call.
 AC_MSG_CHECKING(for revoke system call)
 AC_CACHE_VAL(vi_cv_revoke, [dnl
-AC_TRY_LINK(, [revoke("a");],
+AC_RUN_IFELSE([AC_LANG_PROGRAM([#include <errno.h>
+#include <unistd.h>],
+	[return revoke("/dev/tty") == 0 || errno != ENOSYS ? 0 : 1;])],
 	[vi_cv_revoke=yes], [vi_cv_revoke=no])])
 if test "$vi_cv_revoke" = yes; then
 	AC_DEFINE(HAVE_REVOKE, 1,
