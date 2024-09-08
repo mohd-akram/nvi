@@ -985,10 +985,10 @@ int fprintf ();
 
 AC_SUBST(NEED_FPRINTF_PROTO)
 AC_CACHE_CHECK([whether fprintf prototype needed], vi_cv_proto_fprintf,
-[AC_TRY_COMPILE([ #include <stdio.h>
+[AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdio.h>
 typedef int     (*funcPtr)();
-],[funcPtr ptr = (funcPtr) fprintf;],
-vi_cv_proto_fprintf=no,
+]], [[funcPtr ptr = (funcPtr) fprintf;]])],
+[vi_cv_proto_fprintf=no],
 [vi_cv_proto_fprintf=yes])])
 if test "$vi_cv_proto_fprintf" = yes; then
 	AC_DEFINE(NEED_FPRINTF_PROTO, 1,
