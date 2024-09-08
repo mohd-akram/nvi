@@ -250,6 +250,7 @@ AC_ARG_ENABLE(widechar,
 	[vi_cv_widechar=$enableval], [vi_cv_widechar="no"])
 if test "$vi_cv_widechar" = "yes"; then
 	AC_DEFINE(USE_WIDECHAR, 1, [Define when using wide characters.])
+	VI_PROTOTYPE([wcwidth], [[#include <wchar.h>]])
 fi
 AC_MSG_RESULT($vi_cv_widechar)
 

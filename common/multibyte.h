@@ -5,6 +5,10 @@
 #include <wchar.h>
 #include <wctype.h>
 
+#ifdef NEED_WCWIDTH_PROTO
+int wcwidth(wchar_t c);
+#endif
+
 typedef	wchar_t		RCHAR_T;
 #define RCHAR_T_MAX	((1 << 24)-1)
 typedef	wchar_t		CHAR_T;
