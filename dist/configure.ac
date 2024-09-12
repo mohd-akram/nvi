@@ -984,7 +984,7 @@ int fprintf ();
 ],[int i;], vi_cv_type_fprintf=int, vi_cv_type_fprintf=void)])
 
 AC_SUBST(NEED_FPRINTF_PROTO)
-AC_CACHE_CHECK([fprintf prototype needed], vi_cv_proto_fprintf,
+AC_CACHE_CHECK([whether fprintf prototype needed], vi_cv_proto_fprintf,
 [AC_TRY_COMPILE([ #include <stdio.h>
 typedef int     (*funcPtr)();
 ],[funcPtr ptr = (funcPtr) fprintf;],
