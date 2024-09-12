@@ -226,5 +226,9 @@ typedef enum {
 	TAG_SEARCH		/* Tags search pattern wasn't found. */
 } tagmsg_t;
 
+#ifdef HAVE_SYS_SELECT_H
+#include <sys/select.h>
+#endif
+
 #include "ex_def.h"
 #include "extern.h"
