@@ -711,6 +711,7 @@ AC_MSG_RESULT($vi_cv_have_curses_tigetstr)
 if test "$vi_cv_have_curses_tigetstr" = yes; then
 	AC_DEFINE(HAVE_CURSES_TIGETSTR, 1,
 		[Define if you have the curses(3) tigetstr/tigetnum functions.])
+	VI_PROTOTYPE([tigetstr], [[#include <$CURSHEADER>]])
 fi
 
 dnl Check for potentially missing curses functions in system or user-specified

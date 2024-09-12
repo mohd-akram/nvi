@@ -275,13 +275,7 @@ lcmp(a, b)
 /*
  * tigetstr --
  *
- * Vendors put the prototype for tigetstr into random include files, including
- * <term.h>, which we can't include because it makes other systems unhappy.
- * Try and work around the problem, since we only care about the return value.
- *
- * PUBLIC: #ifdef HAVE_CURSES_TIGETSTR
- * PUBLIC: char *tigetstr();
- * PUBLIC: #else
+ * PUBLIC: #if !defined(HAVE_CURSES_TIGETSTR) || defined(NEED_TIGETSTR_PROTO)
  * PUBLIC: char *tigetstr __P((char *));
  * PUBLIC: #endif
  */
