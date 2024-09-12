@@ -707,11 +707,11 @@ AC_CACHE_VAL(vi_cv_have_curses_tigetstr, [dnl
 AC_TRY_LINK([#include <$CURSHEADER>], [tigetstr(0);],
 	[vi_cv_have_curses_tigetstr=yes],
 	[vi_cv_have_curses_tigetstr=no])])
+AC_MSG_RESULT($vi_cv_have_curses_tigetstr)
 if test "$vi_cv_have_curses_tigetstr" = yes; then
 	AC_DEFINE(HAVE_CURSES_TIGETSTR, 1,
 		[Define if you have the curses(3) tigetstr/tigetnum functions.])
 fi
-AC_MSG_RESULT($vi_cv_have_curses_tigetstr)
 
 dnl Check for potentially missing curses functions in system or user-specified
 dnl libraries.  We also have to guess at whether the specified library is a
