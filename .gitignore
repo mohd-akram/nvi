@@ -12,6 +12,7 @@ dist/m4/lt*.m4
 dist/missing
 dist/stamp-h.in
 dist/tags
+dist/test-driver
 cl/extern.h
 common/extern.h
 *_def.h

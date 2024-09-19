@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# Script that runs ex (vi -e) tests and compares the output
+# to the expected output.
+# Fail if there are any differences.
+
+DIFF="@DIFF@"
+DIFF_OPTIONS="@DIFF_OPTIONS@"
+EXEEXT=@EXEEXT@
+srcdir=@srcdir@
+
+failed=0
+
+for test in "$srcdir"/../tests/ex/*.ex; do
+	echo "$test"
+	base=`basename "$test" .ex`
+	dir=`dirname "$test"`
+	out="$base".out
+	(
+		rm -f "$out" &&
+		./vi$EXEEXT -e "$out" < "$test" &&
+		"$DIFF" $DIFF_OPTIONS "$dir"/"$out" "$out" &&
+		rm "$out"
+	) || failed=1
+done
+
+test $failed -eq 0 || exit

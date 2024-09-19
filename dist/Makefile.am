@@ -219,6 +219,7 @@ libvi_la_LIBADD = @LTLIBOBJS@
 
 bin_PROGRAMS = @vi_programs@ @vi_ipc@
 EXTRA_PROGRAMS = vi vi-ipc vi-motif vi-gtk
+TESTS = ex_test.sh
 
 vi_SOURCES = \
 	$(visrcdir)/cl/cl.h \

@@ -1134,8 +1134,11 @@ case "$vi_cv_re_lib" in
 	;;
 esac
 
+VI_DETECT_DIFF_OPTIONS
+
 AC_CONFIG_FILES([Makefile])
 AC_CONFIG_FILES([port.h:port.h.in])
 AC_CONFIG_FILES([pathnames.h:pathnames.h.in])
 AC_CONFIG_FILES([recover:recover.in])
+AC_CONFIG_FILES([ex_test.sh], [chmod +x ex_test.sh])
 AC_OUTPUT
