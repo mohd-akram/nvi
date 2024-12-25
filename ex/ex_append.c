@@ -125,7 +125,7 @@ ex_aci(SCR *sp, EXCMD *cmdp, enum which cmd)
 	 *	.
 	 *
 	 * and the text on the ex command line would be appended as well as
-	 * the text inserted after it.  There was an historic bug however,
+	 * the text inserted after it.  There was a historic bug however,
 	 * that the user had to enter *two* terminating lines (the '.' lines)
 	 * to terminate text input mode, in this case.  This whole thing
 	 * could be taken too far, however.  Entering:
@@ -145,7 +145,7 @@ ex_aci(SCR *sp, EXCMD *cmdp, enum which cmd)
 	 * inserted.  There may also be a leading delimiter, which is ignored
 	 * unless it's also a trailing delimiter.  It is possible to encounter
 	 * a termination line, i.e. a single '.', in a global command, but not
-	 * necessary if the text insert command was the last of the global
+	 * necessarily if the text insert command was the last of the global
 	 * commands.
 	 */
 	if (cmdp->save_cmdlen != 0) {
