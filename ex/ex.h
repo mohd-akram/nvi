@@ -98,7 +98,7 @@ struct _excmd {
 #define	AGV_GLOBAL	0x04		/* global command. */
 #define	AGV_V		0x08		/* v command. */
 #define	AGV_ALL		(AGV_AT | AGV_AT_NORANGE | AGV_GLOBAL | AGV_V)
-	u_int8_t  agv_flags;
+	u_int8_t  agv_flags : 4;
 
 	/* Clear the structure before each ex command. */
 #define	CLEAR_EX_CMD(cmdp) {						\
