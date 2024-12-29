@@ -2146,7 +2146,7 @@ ex_load(SCR *sp)
 	 * so we have play games.
 	 */
 	ecp->cp = ecp->o_cp;
-	MEMCPYW(ecp->cp, ecp->cp + ecp->o_clen, ecp->o_clen);
+	MEMCPYW(ecp->cp, ecp->cp + ecp->o_clen + 1, ecp->o_clen + 1);
 	ecp->clen = ecp->o_clen;
 	ecp->range_lno = sp->lno = rp->start++;
 

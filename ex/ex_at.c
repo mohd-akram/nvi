@@ -106,13 +106,12 @@ ex_at(SCR *sp, EXCMD *cmdp)
 	    tp != (void *)&cbp->textq; tp = tp->q.cqe_prev)
 		len += tp->len + 1;
 
-	MALLOC_RET(sp, ecp->cp, CHAR_T *, len * 2 * sizeof(CHAR_T));
+	MALLOC_RET(sp, ecp->cp, CHAR_T *, (len + 1) * 2 * sizeof(CHAR_T));
 	ecp->o_cp = ecp->cp;
 	ecp->o_clen = len;
-	ecp->cp[len] = '\0';
 
 	/* Copy the buffer into the command space. */
-	for (p = ecp->cp + len, tp = cbp->textq.cqh_last;
+	for (p = ecp->cp + len + 1, tp = cbp->textq.cqh_last;
 	    tp != (void *)&cbp->textq; tp = tp->q.cqe_prev) {
 		MEMCPYW(p, tp->lb, tp->len);
 		p += tp->len;

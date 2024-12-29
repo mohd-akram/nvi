@@ -172,10 +172,10 @@ usage:		ex_emsg(sp, cmdp->cmd->usage, EXM_USAGE);
 		len = 1;
 	}
 
-	MALLOC_RET(sp, ecp->cp, CHAR_T *, (len * 2) * sizeof(CHAR_T));
+	MALLOC_RET(sp, ecp->cp, CHAR_T *, (len + 1) * 2 * sizeof(CHAR_T));
 	ecp->o_cp = ecp->cp;
 	ecp->o_clen = len;
-	MEMCPYW(ecp->cp + len, p, len);
+	MEMCPYW(ecp->cp + len + 1, p, len + 1);
 	ecp->range_lno = OOBLNO;
 	FL_SET(ecp->agv_flags, cmd == GLOBAL ? AGV_GLOBAL : AGV_V);
 	LIST_INSERT_HEAD(&sp->wp->ecq, ecp, q);
